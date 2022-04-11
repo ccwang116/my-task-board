@@ -1,0 +1,145 @@
+@-webkit-keyframes expand {
+  from {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+  to {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+}
+
+@keyframes expand {
+  from {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+  to {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+}
+
+@-webkit-keyframes shrink {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+}
+
+@keyframes shrink {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 0 0px;
+            transform-origin: 0 0px;
+  }
+}
+
+.add-title {
+  margin-bottom: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.add-title > button {
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  background: #333536;
+}
+
+.cancel {
+  text-align: right;
+  color: black;
+  cursor: pointer;
+}
+
+.form-card {
+  background: #4a4d4e;
+  padding: 20px;
+  margin-bottom: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  left: calc(50% - 325px);
+  top: calc(50% - 113px);
+  width: 650px;
+  -webkit-box-shadow: 5px 5px 5px #222;
+          box-shadow: 5px 5px 5px #222;
+}
+
+.form-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 9px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.blue-link {
+  font-size: 9px;
+  color: #6c87ff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.animeStart {
+  -webkit-animation-name: expand;
+          animation-name: expand;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transform-origin: 0 0px;
+          transform-origin: 0 0px;
+}
+
+.animeEnd {
+  -webkit-animation-name: shirnk;
+          animation-name: shirnk;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: 0 0px;
+          transform-origin: 0 0px;
+}
+/*# sourceMappingURL=styles.module.css.map */

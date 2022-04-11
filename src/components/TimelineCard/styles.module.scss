@@ -1,0 +1,40 @@
+.box {
+  padding: 0 30px;
+}
+.task-card {
+  margin-bottom: 20px;
+  .card-body {
+    display: flex;
+  }
+  .tag {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4a4d4e;
+    padding: 0 5px;
+    line-height: 24px;
+    &::before {
+      content: "|  ";
+    }
+  }
+  .content {
+    flex: 0 0 32%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-right: 15px;
+    & > div {
+      display: flex;
+      align-items: center;
+      & > img {
+        width: 17px;
+        height: 17px;
+        margin-right: 10px;
+      }
+      & > span {
+        font-size: 12px;
+      }
+    }
+  }
+}

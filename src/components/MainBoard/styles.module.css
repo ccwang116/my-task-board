@@ -1,0 +1,88 @@
+.box {
+  padding: 30px;
+}
+
+.headline {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #4a4d4e;
+  padding: 0 5px;
+  line-height: 24px;
+}
+
+.tag::before {
+  content: "|  ";
+}
+
+.content {
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid transparent;
+}
+
+.content > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content > div > img {
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+}
+
+.content > div > span {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.content.dragover {
+  border: 1px solid pink;
+}
+
+.task-card {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 31%;
+          flex: 0 0 31%;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 799px) {
+  .task-card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin-right: 0;
+  }
+}
+/*# sourceMappingURL=styles.module.css.map */

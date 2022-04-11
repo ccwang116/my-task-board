@@ -1,0 +1,56 @@
+.box {
+  padding: 30px;
+}
+.headline {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #4a4d4e;
+  padding: 0 5px;
+  line-height: 24px;
+  &::before {
+    content: "|  ";
+  }
+}
+.content {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  & > div {
+    display: flex;
+    align-items: center;
+    & > img {
+      width: 17px;
+      height: 17px;
+      margin-right: 10px;
+    }
+    & > span {
+      font-size: 12px;
+      margin-right: 10px;
+    }
+  }
+
+  &.dragover {
+    border: 1px solid pink;
+  }
+}
+.task-card {
+  flex: 0 0 31%;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  @media only screen and (max-width: 799px) {
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
+}

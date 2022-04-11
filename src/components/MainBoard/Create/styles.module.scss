@@ -1,0 +1,80 @@
+@keyframes expand {
+  from {
+    transform: scaleY(0);
+    transform-origin: 0 0px;
+  }
+
+  to {
+    transform: scaleY(1);
+    transform-origin: 0 0px;
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scaleY(1);
+    transform-origin: 0 0px;
+  }
+
+  to {
+    transform: scaleY(0);
+    transform-origin: 0 0px;
+  }
+}
+
+.add-title {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  & > button {
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    background: #333536;
+  }
+}
+.cancel {
+  text-align: right;
+  color: black;
+  cursor: pointer;
+}
+.form-card {
+  background: #4a4d4e;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  position: absolute;
+  left: calc(50% - 325px);
+  top: calc(50% - 113px);
+  width: 650px;
+  box-shadow: 5px 5px 5px #222;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-label {
+  font-size: 9px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+.blue-link {
+  font-size: 9px;
+  color: rgb(108, 135, 255);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.animeStart {
+  animation-name: expand;
+  animation-duration: 0.5s;
+  transform: scaleY(1);
+  transform-origin: 0 0px;
+}
+.animeEnd {
+  animation-name: shirnk;
+  animation-duration: 0.5s;
+  transform: scaleY(0);
+  transform-origin: 0 0px;
+}
