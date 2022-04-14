@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import paper from "../../images/note-sticky-regular.svg";
+import React, { useEffect, useState } from "react";
 import { Todo, Tag, addFormdata } from "../../todo.model";
 import classNames from "classnames/bind";
 import classes from "./styles.module.scss";
 import TaskCard from "./TaskCard";
 import Create from "./Create";
+import Timelines from "../TimelineCard";
+
+import { defaultTasks, defaultTags } from "../../data/defaultdata";
 
 const cx = classNames.bind(classes);
 const MainBoard: React.FC = (props) => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [tags, setTags] = useState<Tag[]>([
-    { id: "1122", text: "movies" },
-    { id: "334", text: "books" },
-  ]);
+  const [tags, setTags] = useState<Tag[]>([]);
+  const [keyword, setKeyword] = useState<string>("all");
   const todoAddHandler = (data: addFormdata) => {
     setTodos((prevTodos) => [
       ...prevTodos,
@@ -52,7 +52,9 @@ const MainBoard: React.FC = (props) => {
       return [...prevTodos.filter((todo) => todo.id !== todoId), targetItem];
     });
   };
-  const onSwap = (dragStartNum: number, dragEndNum: number) => {
+  const onSwap = (dragStartNum: number, dragEndNum: number, label: string) => {
+    const noChange = todos.filter((e) => e.tags !== label);
+    const target = todos.filter((e) => e.tags === label);
     const modiSeed = (item: Todo) => {
       switch (item.order) {
         case dragStartNum:
@@ -63,9 +65,13 @@ const MainBoard: React.FC = (props) => {
           return item;
       }
     };
-    let newtodos: Todo[] = todos.map((item) => modiSeed(item));
-    setTodos(newtodos);
+    let newtodos: Todo[] = target.map((item) => modiSeed(item));
+    setTodos([...newtodos, ...noChange]);
   };
+  useEffect(() => {
+    setTodos(defaultTasks);
+    setTags(defaultTags);
+  }, []);
   return (
     <div className={cx("box")}>
       <div className={cx("headline")}>My board</div>
@@ -80,19 +86,54 @@ const MainBoard: React.FC = (props) => {
             onSwap={onSwap}
           />
         ))}
+      </div>
+      <div className={cx("hr")}></div>
+      <div className={cx("checklist")}>
+        <span className={cx("selectLabel")}>All Checklist-</span>
+        <div>
+          <span className={cx("selectLabel")}>Filter by:</span>
+          <select
+            className={cx("mb-large")}
+            onChange={(e) => setKeyword(e.target.value)}
+          >
+            <option key={"all"} value={"all"}>
+              all
+            </option>
+            {tags.map((e) => (
+              <option key={e.id} value={e.text}>
+                {e.text}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div className={cx("container")}>
         <TaskCard
           key={"completed"}
           title={"completed"}
-          data={todos.filter((todo) => todo.completed)}
+          isShowLabel={true}
+          data={todos.filter((todo) =>
+            keyword === "all"
+              ? todo.completed
+              : todo.completed && todo.tags === keyword
+          )}
           completeHandler={completeHandler}
+          tags={tags}
         />
         <TaskCard
           key={"uncompleted"}
           title={"uncompleted"}
-          data={todos.filter((todo) => !todo.completed)}
+          isShowLabel={true}
+          data={todos.filter((todo) =>
+            keyword === "all"
+              ? !todo.completed
+              : !todo.completed && todo.tags === keyword
+          )}
           completeHandler={completeHandler}
+          tags={tags}
         />
       </div>
+      <Timelines todos={todos} />
     </div>
   );
 };

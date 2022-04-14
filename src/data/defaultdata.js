@@ -1,0 +1,55 @@
+export const defaultTasks = [
+  {
+    id: "001",
+    text: "Spider-Man: No Way Home",
+    tags: "movies",
+    time: "2021-12-19T00:06",
+    completed: true,
+    order: 1,
+  },
+  {
+    id: "002",
+    text: "Eternals",
+    tags: "movies",
+    time: "2021-11-05T00:06",
+    completed: false,
+    order: 2,
+  },
+  {
+    id: "003",
+    text: "原子習慣",
+    tags: "books",
+    time: "2018-10-16T00:06",
+    completed: false,
+    order: 1,
+  },
+  {
+    id: "004",
+    text: "致富心態",
+    tags: "books",
+    time: "2021-01-27T00:06",
+    completed: true,
+    order: 2,
+  },
+  {
+    id: "005",
+    text: "魔法滿屋",
+    tags: "movies",
+    time: "2021-11-24T00:06",
+    completed: false,
+    order: 3,
+  },
+  {
+    id: "006",
+    text: "adobe effect",
+    tags: "tools",
+    time: "2021-11-24T00:06",
+    completed: false,
+    order: 1,
+  },
+];
+export const defaultTags = [
+  { id: "001", text: "movies" },
+  { id: "002", text: "books" },
+  { id: "003", text: "tools" },
+];

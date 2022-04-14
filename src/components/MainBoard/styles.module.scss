@@ -21,6 +21,22 @@
     content: "|  ";
   }
 }
+.hr {
+  border-bottom: 2px solid #4a4d4e;
+  margin-bottom: 10px;
+}
+.mb-large {
+  margin-bottom: 30px;
+}
+.checklist {
+  display: flex;
+  justify-content: space-between;
+}
+.selectLabel {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+}
 .content {
   margin: 10px 0;
   display: flex;
@@ -53,4 +69,7 @@
     flex: 0 0 100%;
     margin-right: 0;
   }
+}
+.task-card-half {
+  flex: 1 0 0;
 }

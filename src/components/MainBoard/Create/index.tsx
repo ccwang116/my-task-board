@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { addFormdata, Tag } from "../../../todo.model";
+import moment from "moment";
 
 import classNames from "classnames/bind";
 import classes from "./styles.module.scss";
@@ -39,10 +40,16 @@ const Create: React.FC<NewTodoProps> = (props) => {
     setIsOpenTag(false);
     setValue("taskTag", enteredText);
   };
-  console.log(watch("taskName"), errors);
+  // console.log(watch("taskName"), errors);
   return (
     <>
-      <div className={cx("add-title")} onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={cx("add-title")}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          setValue("taskTime", moment().format("YYYY-MM-DDTHH:mm"));
+        }}
+      >
         <button>Add a new task +</button>
       </div>
       {isOpen && (
@@ -72,28 +79,32 @@ const Create: React.FC<NewTodoProps> = (props) => {
             <label className={cx("form-label")} htmlFor="todo-tag">
               Task Tag
             </label>
-            <select {...register("taskTag", { required: true })}>
-              {props.tags.map((e) => (
-                <option
-                  key={e.id}
-                  value={e.text}
-                  selected={watch("taskTag") === e.text}
-                >
-                  {e.text}
-                </option>
-              ))}
-            </select>
-            <div
-              className={cx("blue-link")}
-              onClick={() => setIsOpenTag(!isOpenTag)}
-            >
-              + Add Tags
-            </div>
+            {!isOpenTag && (
+              <select {...register("taskTag", { required: true })}>
+                {props.tags.map((e) => (
+                  <option
+                    key={e.id}
+                    value={e.text}
+                    selected={watch("taskTag") === e.text}
+                  >
+                    {e.text}
+                  </option>
+                ))}
+              </select>
+            )}
+            {!isOpenTag && (
+              <div
+                className={cx("blue-link")}
+                onClick={() => setIsOpenTag(!isOpenTag)}
+              >
+                + Add Tags
+              </div>
+            )}
             {isOpenTag && (
               <div>
                 <input
                   type="text"
-                  placeholder="drama,foods...etc"
+                  placeholder="Lessons,Skills...etc"
                   ref={textInputRef}
                 />{" "}
                 <button onClick={tagHandler}>Add</button>

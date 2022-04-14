@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import TodoSample from "./components/TodoSample";
 import Banner from "./components/Banner";
 import MainBoard from "./components/MainBoard";
-import Timelines from "./components/TimelineCard";
 
 import "./App.css";
 
@@ -13,7 +12,6 @@ const App: React.FC = () => {
       <div className="layout">
         <Banner />
         <MainBoard />
-        <Timelines />
       </div>
     </div>
   );
