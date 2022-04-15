@@ -14,7 +14,7 @@
     right: 75px;
     display: none;
     z-index: 80;
-    @media screen {
+    @media only screen and (max-width: 799px) {
       right: 11px;
     }
   }
@@ -25,7 +25,7 @@
     left: 68px;
     display: none;
     z-index: 80;
-    @media screen {
+    @media only screen and (max-width: 799px) {
       left: -9px;
     }
   }
