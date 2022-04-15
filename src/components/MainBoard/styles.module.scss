@@ -1,5 +1,62 @@
 .box {
   padding: 30px;
+  position: relative;
+  .circleQ {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .tutorial1 {
+    position: absolute;
+    width: 375px;
+    top: 35px;
+    right: 75px;
+    display: none;
+    z-index: 80;
+    @media screen {
+      right: 11px;
+    }
+  }
+  .tutorial2 {
+    position: absolute;
+    width: 441px;
+    top: -19px;
+    left: 68px;
+    display: none;
+    z-index: 80;
+    @media screen {
+      left: -9px;
+    }
+  }
+  .nextStep {
+    position: fixed;
+    top: calc(70vh - 25px);
+    left: calc(50vw - 50px);
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    display: none;
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 99;
+    text-align: center;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  .block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0.5;
+    display: none;
+  }
+  .active {
+    display: block;
+  }
 }
 .headline {
   font-size: 25px;

@@ -6,6 +6,10 @@ import TaskCard from "./TaskCard";
 import Create from "./Create";
 import Timelines from "../TimelineCard";
 
+import tutorial1 from "../../images/tutorial-1.png";
+import tutorial2 from "../../images/tutorial-2.png";
+import circleQ from "../../images/circle-question-regular.svg";
+
 import { defaultTasks, defaultTags } from "../../data/defaultdata";
 
 const cx = classNames.bind(classes);
@@ -13,6 +17,7 @@ const MainBoard: React.FC = (props) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [tags, setTags] = useState<Tag[]>([]);
   const [keyword, setKeyword] = useState<string>("all");
+  const [tutorOrder, setTutorOrder] = useState<number>(0);
   const todoAddHandler = (data: addFormdata) => {
     setTodos((prevTodos) => [
       ...prevTodos,
@@ -68,13 +73,46 @@ const MainBoard: React.FC = (props) => {
     let newtodos: Todo[] = target.map((item) => modiSeed(item));
     setTodos([...newtodos, ...noChange]);
   };
+  const tutorHandler = () => {
+    if (tutorOrder < 2) {
+      setTutorOrder(tutorOrder + 1);
+    } else {
+      setTutorOrder(0);
+    }
+  };
   useEffect(() => {
     setTodos(defaultTasks);
     setTags(defaultTags);
   }, []);
   return (
     <div className={cx("box")}>
-      <div className={cx("headline")}>My board</div>
+      <img
+        className={cx("tutorial1", { active: tutorOrder === 1 })}
+        src={tutorial1}
+        alt="tutorial1"
+      />
+      <img
+        className={cx("tutorial2", { active: tutorOrder === 2 })}
+        src={tutorial2}
+        alt="tutorial2"
+      />
+      <div
+        className={cx("nextStep", { active: tutorOrder !== 0 })}
+        onClick={tutorHandler}
+      >
+        {tutorOrder === 2 ? "OK ! " : "Next"}
+      </div>
+      <div className={cx("block", { active: tutorOrder !== 0 })} />
+      <div className={cx("headline")}>
+        My board
+        <img
+          className={cx("circleQ")}
+          src={circleQ}
+          onClick={() => setTutorOrder(1)}
+          alt="circleQ"
+          title="Click to See Tutorial Step"
+        />
+      </div>
       <Create onAddTodo={todoAddHandler} tags={tags} onAddTag={tagAddHandler} />
       <div className={cx("container")}>
         {tags.map((e) => (

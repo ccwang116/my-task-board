@@ -48,11 +48,15 @@
   padding: 20px;
   margin-bottom: 20px;
   transition: 0.5s;
-  position: absolute;
+  position: fixed;
   left: calc(50% - 325px);
   top: calc(50% - 113px);
   width: 650px;
   box-shadow: 5px 5px 5px #222;
+  @media only screen and (max-width: 799px) {
+    width: calc(100vw - 103px);
+    left: auto;
+  }
 }
 .form-control {
   display: flex;
