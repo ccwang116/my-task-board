@@ -1,28 +1,21 @@
 import React, { useState } from "react";
 import paper from "../../../images/note-sticky-regular.svg";
+import Trash from "../../../images/trash-can-regular.svg";
 
 import moment from "moment";
 import classNames from "classnames/bind";
 import classes from "../styles.module.scss";
 import { Todo, Tag } from "../../../todo.model";
+import { colorArray } from "../../../data/tagColorList";
 
 const cx = classNames.bind(classes);
-const colorArray = [
-  "#0cb1fc",
-  "#a237e9",
-  "#fb02ae",
-  "#dc1733",
-  "#f48022",
-  "#febd4c",
-  "#fafc3d",
-  "#aced0b",
-  "#35d86c",
-];
+
 type CardProps = {
   title: string;
   data: Todo[];
   isShowLabel?: boolean;
   completeHandler: (id: string) => void;
+  onDelete?: (id: string) => void;
   onSwap?: (dragStartNum: number, dragEndNum: number, label: string) => void;
   tags?: Tag[];
 };
@@ -85,11 +78,18 @@ const TaskCard: React.FC<CardProps> = (props) => {
                   </span>
                 )}
               </div>
-              <input
-                type="checkbox"
-                checked={e.completed}
-                onClick={() => props.completeHandler(e.id)}
-              />
+              <div className={cx("action")}>
+                <input
+                  type="checkbox"
+                  checked={e.completed}
+                  onClick={() => props.completeHandler(e.id)}
+                />
+                <img
+                  src={Trash}
+                  alt="trash"
+                  onClick={() => props.onDelete && props.onDelete(e.id)}
+                />
+              </div>
             </div>
           ))}
       </div>

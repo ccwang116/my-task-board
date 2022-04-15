@@ -83,13 +83,14 @@ const MainBoard: React.FC = (props) => {
             title={e.text}
             data={todos.filter((todo) => todo.tags === e.text)}
             completeHandler={completeHandler}
+            onDelete={todoDeleteHandler}
             onSwap={onSwap}
           />
         ))}
       </div>
       <div className={cx("hr")}></div>
       <div className={cx("checklist")}>
-        <span className={cx("selectLabel")}>All Checklist-</span>
+        <span className={cx("selectLabel")}>All Checklist</span>
         <div>
           <span className={cx("selectLabel")}>Filter by:</span>
           <select

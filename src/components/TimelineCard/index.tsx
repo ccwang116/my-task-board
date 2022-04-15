@@ -27,7 +27,9 @@ const Timelines: React.FC<TimelinesProps> = (props) => {
                   <img src={paper} alt="todo" />
                   <span>{e.text}</span>
                 </div>
-                <span className={cx("time")}>{e.time}</span>
+                <span className={cx("time")}>
+                  {moment(e.time).format("YYYY/MM/DD HH:mm")}
+                </span>
               </div>
             ))}
         </div>

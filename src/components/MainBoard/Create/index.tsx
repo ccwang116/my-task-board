@@ -50,7 +50,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
           setValue("taskTime", moment().format("YYYY-MM-DDTHH:mm"));
         }}
       >
-        <button>Add a new task +</button>
+        <button className={"btn"}>Add a new task +</button>
       </div>
       {isOpen && (
         <form
@@ -61,6 +61,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
             onClick={() => {
               setIsOpen(false);
               reset();
+              setIsOpenTag(false);
             }}
             className={cx("cancel")}
           >
@@ -79,23 +80,32 @@ const Create: React.FC<NewTodoProps> = (props) => {
             <label className={cx("form-label")} htmlFor="todo-tag">
               Task Tag
             </label>
-            {!isOpenTag && (
-              <select {...register("taskTag", { required: true })}>
-                {props.tags.map((e) => (
-                  <option
-                    key={e.id}
-                    value={e.text}
-                    selected={watch("taskTag") === e.text}
-                  >
-                    {e.text}
-                  </option>
-                ))}
-              </select>
-            )}
+
+            <select {...register("taskTag", { required: true })}>
+              <option
+                key={"Please select one tag"}
+                value={""}
+                selected={watch("taskTag") === ""}
+              >
+                --Please Select--
+              </option>
+              {props.tags.map((e) => (
+                <option
+                  key={e.id}
+                  value={e.text}
+                  selected={watch("taskTag") === e.text}
+                >
+                  {e.text}
+                </option>
+              ))}
+            </select>
+
             {!isOpenTag && (
               <div
                 className={cx("blue-link")}
-                onClick={() => setIsOpenTag(!isOpenTag)}
+                onClick={() => {
+                  setIsOpenTag(true);
+                }}
               >
                 + Add Tags
               </div>
@@ -107,7 +117,15 @@ const Create: React.FC<NewTodoProps> = (props) => {
                   placeholder="Lessons,Skills...etc"
                   ref={textInputRef}
                 />{" "}
-                <button onClick={tagHandler}>Add</button>
+                <button className={"btn " + cx("addBtn")} onClick={tagHandler}>
+                  Add
+                </button>
+                <button
+                  className={"btn " + cx("cancelBtn")}
+                  onClick={() => setIsOpenTag(false)}
+                >
+                  Cancel
+                </button>
               </div>
             )}
           </div>
@@ -121,7 +139,11 @@ const Create: React.FC<NewTodoProps> = (props) => {
               id="todo-time"
             />
           </div>
-          <button type="submit" disabled={!isValid}>
+          <button
+            className={"btn " + cx("createBtn")}
+            type="submit"
+            disabled={!isValid}
+          >
             Create
           </button>
         </form>
