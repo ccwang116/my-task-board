@@ -111,7 +111,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
               </div>
             )}
             {isOpenTag && (
-              <div>
+              <div className={cx("addTagCard")}>
                 <input
                   type="text"
                   placeholder="Lessons,Skills...etc"

@@ -71,6 +71,13 @@
   color: #aaa;
   margin-bottom: 5px;
 }
+.addTagCard {
+  @media only screen and (max-width: 799px) {
+    & > input {
+      width: calc(100% - 8px);
+    }
+  }
+}
 .blue-link {
   font-size: 9px;
   color: rgb(108, 135, 255);
