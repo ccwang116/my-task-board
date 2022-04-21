@@ -73,7 +73,9 @@
 .form-card-light {
   background: #ccc;
   box-shadow: none;
-  border: 2px solid #4a4d4e;
+  box-shadow: 5px 5px 5px #aaa;
+
+  // border: 2px solid #4a4d4e;
 }
 .form-control {
   display: flex;
