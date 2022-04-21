@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useContext, useState } from "react";
+import { ColorThemeStorage } from "../../../contexts/ColorTheme";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { addFormdata, Tag } from "../../../todo.model";
@@ -18,7 +19,14 @@ interface FormData {
   taskTime: string;
   taskTag: string;
 }
+interface styleType {
+  btnstyle: { [key: string]: string };
+  formstyle: { [key: string]: string };
+  textstyle: { [key: string]: string };
+}
 const Create: React.FC<NewTodoProps> = (props) => {
+  const themeData = useContext(ColorThemeStorage);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenTag, setIsOpenTag] = useState(false);
   const { register, handleSubmit, reset, watch, setValue, formState } =
@@ -40,7 +48,20 @@ const Create: React.FC<NewTodoProps> = (props) => {
     setIsOpenTag(false);
     setValue("taskTag", enteredText);
   };
-  // console.log(watch("taskName"), errors);
+  const styleMap: styleType = {
+    btnstyle: {
+      dark: "btnDark",
+      light: "btnLight",
+    },
+    formstyle: {
+      dark: "form-card-dark",
+      light: "form-card-light",
+    },
+    textstyle: {
+      dark: "t-dark",
+      light: "t-light",
+    },
+  };
   return (
     <>
       <div
@@ -50,12 +71,21 @@ const Create: React.FC<NewTodoProps> = (props) => {
           setValue("taskTime", moment().format("YYYY-MM-DDTHH:mm"));
         }}
       >
-        <button className={"btn"}>Add a new task +</button>
+        <button
+          className={
+            "btn " + cx(themeData && styleMap.btnstyle[themeData?.themeName])
+          }
+        >
+          Add a new task +
+        </button>
       </div>
       {isOpen && (
         <form
           onSubmit={handleSubmit(todoSubmitHandler)}
-          className={cx("form-card")}
+          className={cx(
+            "form-card",
+            themeData && styleMap.formstyle[themeData?.themeName]
+          )}
         >
           <div
             onClick={() => {
@@ -68,7 +98,13 @@ const Create: React.FC<NewTodoProps> = (props) => {
             X
           </div>
           <div className={cx("form-control")}>
-            <label className={cx("form-label")} htmlFor="todo-text">
+            <label
+              className={cx(
+                "form-label",
+                themeData && styleMap.textstyle[themeData?.themeName]
+              )}
+              htmlFor="todo-text"
+            >
               Task Name
             </label>
             <input
@@ -77,7 +113,13 @@ const Create: React.FC<NewTodoProps> = (props) => {
             />
           </div>
           <div className={cx("form-control")}>
-            <label className={cx("form-label")} htmlFor="todo-tag">
+            <label
+              className={cx(
+                "form-label",
+                themeData && styleMap.textstyle[themeData?.themeName]
+              )}
+              htmlFor="todo-tag"
+            >
               Task Tag
             </label>
 
@@ -130,7 +172,13 @@ const Create: React.FC<NewTodoProps> = (props) => {
             )}
           </div>
           <div className={cx("form-control")}>
-            <label className={cx("form-label")} htmlFor="todo-time">
+            <label
+              className={cx(
+                "form-label",
+                themeData && styleMap.textstyle[themeData?.themeName]
+              )}
+              htmlFor="todo-time"
+            >
               Task Time
             </label>
             <input

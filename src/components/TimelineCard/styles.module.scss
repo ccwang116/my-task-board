@@ -18,7 +18,8 @@
       width: 6px;
       height: 12px;
     }
-
+  }
+  .scroll-dark {
     &::-webkit-scrollbar-track-piece {
       background-color: rgb(27, 27, 27);
       border-radius: 3px;
@@ -29,15 +30,16 @@
       border-radius: 3px;
     }
   }
-  .tag {
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #4a4d4e;
-    padding: 0 5px;
-    line-height: 24px;
+  .scroll-light {
+    &::-webkit-scrollbar-track-piece {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
 
-    &::before {
-      content: "|  ";
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 3px;
     }
   }
   .content {
@@ -51,7 +53,7 @@
     & > div {
       display: flex;
       align-items: center;
-      & > img {
+      & > svg {
         width: 17px;
         height: 17px;
         margin-right: 10px;

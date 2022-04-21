@@ -27,10 +27,9 @@
   justify-content: flex-end;
   & > button {
     font-weight: bold;
-    color: #aaa;
+
     cursor: pointer;
-    background: #333536;
-    border: 1px solid #aaa;
+
     &:hover {
       color: #333536;
       background: #aaa;
@@ -38,13 +37,22 @@
     }
   }
 }
+.btnDark {
+  color: #aaa;
+  background: #333536;
+  border: 1px solid #aaa;
+}
+.btnLight {
+  color: #333536;
+  background: #aaa;
+  border: 1px solid transparent;
+}
 .cancel {
   text-align: right;
   color: black;
   cursor: pointer;
 }
 .form-card {
-  background: #4a4d4e;
   padding: 20px;
   margin-bottom: 20px;
   transition: 0.5s;
@@ -52,11 +60,20 @@
   left: calc(50% - 325px);
   top: calc(50% - 113px);
   width: 650px;
-  box-shadow: 5px 5px 5px #222;
+
   @media only screen and (max-width: 799px) {
     width: calc(100vw - 103px);
     left: auto;
   }
+}
+.form-card-dark {
+  background: #4a4d4e;
+  box-shadow: 5px 5px 5px #222;
+}
+.form-card-light {
+  background: #ccc;
+  box-shadow: none;
+  border: 2px solid #4a4d4e;
 }
 .form-control {
   display: flex;
@@ -68,8 +85,13 @@
 }
 .form-label {
   font-size: 9px;
-  color: #aaa;
   margin-bottom: 5px;
+}
+.t-dark {
+  color: #aaa;
+}
+.t-light {
+  color: black;
 }
 .addTagCard {
   @media only screen and (max-width: 799px) {

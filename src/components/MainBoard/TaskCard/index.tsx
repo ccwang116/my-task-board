@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import paper from "../../../images/note-sticky-regular.svg";
+import React, { useState, useContext } from "react";
+import { ReactComponent as Paper } from "../../../images/note-sticky-regular.svg";
+
 import Trash from "../../../images/trash-can-regular.svg";
+import { ColorThemeStorage } from "../../../contexts/ColorTheme";
 
 import moment from "moment";
 import classNames from "classnames/bind";
 import classes from "../styles.module.scss";
 import { Todo, Tag } from "../../../todo.model";
 import { colorArray } from "../../../data/tagColorList";
+import CardHead from "../../DesignSystem/CardHead";
 
 const cx = classNames.bind(classes);
 
@@ -21,17 +24,18 @@ type CardProps = {
 };
 
 const TaskCard: React.FC<CardProps> = (props) => {
+  const themeData = useContext(ColorThemeStorage);
   const [styleStatus, setStyleStatus] = useState<string>();
   const [dragStartNum, setDragStartNum] = useState<number>(-1);
   const [dragEndNum, setDragEndNum] = useState<number>(-1);
   const { onSwap } = props;
-  function titleCase(arg: string) {
-    return arg[0].toUpperCase() + arg.slice(1).toLowerCase();
-  }
-
+  const iconTheme: { [key: string]: string } = {
+    dark: "#fff",
+    light: "#4a4d4e",
+  };
   return (
     <div className={cx("task-card", { "task-card-half": props.isShowLabel })}>
-      <div className={cx("tag")}>{titleCase(props.title)}</div>
+      <CardHead title={props.title} />
       <div className={cx("card-body")}>
         {props.data
           .sort((a, b) =>
@@ -61,7 +65,11 @@ const TaskCard: React.FC<CardProps> = (props) => {
               }}
             >
               <div>
-                <img src={paper} alt="todo" />
+                <Paper
+                  fill={
+                    (themeData && iconTheme[themeData?.themeName]) || undefined
+                  }
+                />
                 <span>{e.text}</span>
                 {props.isShowLabel && (
                   <span

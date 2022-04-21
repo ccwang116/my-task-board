@@ -68,16 +68,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-.tag {
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #4a4d4e;
-  padding: 0 5px;
-  line-height: 24px;
-  &::before {
-    content: "|  ";
-  }
-}
+
 .hr {
   border-bottom: 2px solid #4a4d4e;
   margin-bottom: 10px;
@@ -103,7 +94,7 @@
   & > div {
     display: flex;
     align-items: center;
-    & > img:first-child {
+    & > svg:first-child {
       width: 17px;
       height: 17px;
       margin-right: 10px;
