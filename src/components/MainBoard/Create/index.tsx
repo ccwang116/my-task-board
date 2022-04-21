@@ -39,6 +39,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
     setIsOpen(false);
     reset();
   };
+  // console.log(watch("taskName"), watch("taskTime"), watch("taskTag"));
   const tagHandler = () => {
     const enteredText = textInputRef.current!.value;
     if (!enteredText) {
@@ -46,7 +47,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
     }
     props.onAddTag(enteredText);
     setIsOpenTag(false);
-    setValue("taskTag", enteredText);
+    // setValue("taskTag", enteredText);
   };
   const styleMap: styleType = {
     btnstyle: {
@@ -123,7 +124,10 @@ const Create: React.FC<NewTodoProps> = (props) => {
               Task Tag
             </label>
 
-            <select {...register("taskTag", { required: true })}>
+            <select
+              {...register("taskTag", { required: true })}
+              defaultValue=""
+            >
               <option
                 key={"Please select one tag"}
                 value={""}

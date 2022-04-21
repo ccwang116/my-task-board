@@ -90,7 +90,9 @@ const TaskCard: React.FC<CardProps> = (props) => {
                 <input
                   type="checkbox"
                   checked={e.completed}
-                  onClick={() => props.completeHandler(e.id)}
+                  onChange={(evt) => {
+                    props.completeHandler(e.id);
+                  }}
                 />
                 <img
                   src={Trash}

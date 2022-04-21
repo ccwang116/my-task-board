@@ -157,6 +157,7 @@ const MainBoard: React.FC = (props) => {
               : todo.completed && todo.tags === keyword
           )}
           completeHandler={completeHandler}
+          onDelete={todoDeleteHandler}
           tags={tags}
         />
         <TaskCard
@@ -169,6 +170,7 @@ const MainBoard: React.FC = (props) => {
               : !todo.completed && todo.tags === keyword
           )}
           completeHandler={completeHandler}
+          onDelete={todoDeleteHandler}
           tags={tags}
         />
       </div>
