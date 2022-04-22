@@ -31,7 +31,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
   const [isOpenTag, setIsOpenTag] = useState(false);
   const { register, handleSubmit, reset, watch, setValue, formState } =
     useForm<FormData>({ mode: "onChange" });
-  const { isValid, errors } = formState;
+  const { isValid } = formState;
   const textInputRef = useRef<HTMLInputElement>(null);
 
   const todoSubmitHandler: SubmitHandler<FormData> = (data) => {

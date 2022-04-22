@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 // import { Route } from 'react-router-dom';
-import TodoSample from "./components/TodoSample";
 import Banner from "./components/Banner";
 import MainBoard from "./components/MainBoard";
 import { withColorThemeProvider } from "./contexts/ColorTheme";
