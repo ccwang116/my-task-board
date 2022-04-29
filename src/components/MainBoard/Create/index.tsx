@@ -73,9 +73,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
         }}
       >
         <button
-          className={
-            "btn " + cx(themeData && styleMap.btnstyle[themeData?.themeName])
-          }
+          className={"btn " + cx(styleMap.btnstyle[themeData?.themeName!])}
         >
           Add a new task +
         </button>
@@ -83,10 +81,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
       {isOpen && (
         <form
           onSubmit={handleSubmit(todoSubmitHandler)}
-          className={cx(
-            "form-card",
-            themeData && styleMap.formstyle[themeData?.themeName]
-          )}
+          className={cx("form-card", styleMap.formstyle[themeData?.themeName!])}
         >
           <div
             onClick={() => {
@@ -102,7 +97,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
             <label
               className={cx(
                 "form-label",
-                themeData && styleMap.textstyle[themeData?.themeName]
+                styleMap.textstyle[themeData?.themeName!]
               )}
               htmlFor="todo-text"
             >
@@ -117,7 +112,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
             <label
               className={cx(
                 "form-label",
-                themeData && styleMap.textstyle[themeData?.themeName]
+                styleMap.textstyle[themeData?.themeName!]
               )}
               htmlFor="todo-tag"
             >
@@ -179,7 +174,7 @@ const Create: React.FC<NewTodoProps> = (props) => {
             <label
               className={cx(
                 "form-label",
-                themeData && styleMap.textstyle[themeData?.themeName]
+                styleMap.textstyle[themeData?.themeName!]
               )}
               htmlFor="todo-time"
             >

@@ -27,12 +27,7 @@ const Timelines: React.FC<TimelinesProps> = (props) => {
       <div className={cx("task-card")}>
         <CardHead title="Timelines" />
         <div className={cx("arrow")}>▶</div>
-        <div
-          className={cx(
-            "card-body",
-            themeData && scrollTheme[themeData?.themeName]
-          )}
-        >
+        <div className={cx("card-body", scrollTheme[themeData?.themeName!])}>
           {props.todos
             .sort(
               (a, b) =>
@@ -41,12 +36,7 @@ const Timelines: React.FC<TimelinesProps> = (props) => {
             .map((e) => (
               <div className={cx("content")} key={e.id}>
                 <div>
-                  <Paper
-                    fill={
-                      (themeData && iconTheme[themeData?.themeName]) ||
-                      undefined
-                    }
-                  />
+                  <Paper fill={iconTheme[themeData?.themeName!] || undefined} />
                   <span>{e.text}</span>
                 </div>
                 <span className={cx("time")}>

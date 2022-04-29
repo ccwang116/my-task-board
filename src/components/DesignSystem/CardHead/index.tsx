@@ -19,7 +19,7 @@ const CardHead: React.FC<CardHeadProps> = (props) => {
     light: "taglight",
   };
   return (
-    <div className={cx("tag", themeData && theme[themeData?.themeName])}>
+    <div className={cx("tag", theme[themeData?.themeName!])}>
       {titleCase(props.title)}
     </div>
   );

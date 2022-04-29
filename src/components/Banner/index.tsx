@@ -21,7 +21,7 @@ const Banner: React.FC = () => {
       />
       {/* <img src={clipboard} alt="icon" className={cx("icon")} /> */}
       <Clipboard
-        fill={(themeData && theme[themeData?.themeName]) || undefined}
+        fill={theme[themeData?.themeName!] || undefined}
         className={cx("icon")}
       />
     </div>

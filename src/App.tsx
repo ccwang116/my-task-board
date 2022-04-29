@@ -25,23 +25,21 @@ const App: React.FC = () => {
     light: "topBtnActive",
   };
   return (
-    <div className={`App ${themeData && theme[themeData.themeName]}`}>
+    <div className={`App ${theme[themeData?.themeName!]}`}>
       <div className="layout">
         <div className={`mode-card`}>
-          <span className={`${themeData && modetheme[themeData.themeName]}`}>
+          <span className={`${modetheme[themeData?.themeName!]}`}>
             {themeData && themeData.themeName.toUpperCase() + " Mode"}
           </span>
           <div
-            className={`circleBtn btnDark ${
-              themeData && darkactive[themeData.themeName]
-            }`}
+            className={`circleBtn btnDark ${darkactive[themeData?.themeName!]}`}
             onClick={() => {
               themeData?.handleChangeTheme("dark");
             }}
           ></div>
           <div
             className={`circleBtn btnLight ${
-              themeData && lightactive[themeData.themeName]
+              lightactive[themeData?.themeName!]
             }`}
             onClick={() => {
               themeData?.handleChangeTheme("light");

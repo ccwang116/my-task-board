@@ -65,11 +65,7 @@ const TaskCard: React.FC<CardProps> = (props) => {
               }}
             >
               <div>
-                <Paper
-                  fill={
-                    (themeData && iconTheme[themeData?.themeName]) || undefined
-                  }
-                />
+                <Paper fill={iconTheme[themeData?.themeName!] || undefined} />
                 <span>{e.text}</span>
                 {props.isShowLabel && (
                   <span
