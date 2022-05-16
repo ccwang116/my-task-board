@@ -60,7 +60,7 @@
   left: calc(50% - 325px);
   top: calc(50% - 113px);
   width: 650px;
-
+  z-index: 888;
   @media only screen and (max-width: 799px) {
     width: calc(100vw - 103px);
     left: auto;
