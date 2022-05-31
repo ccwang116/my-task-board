@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Todo, Tag, addFormdata } from "../../todo.model";
+import { Todo, Tag, addFormdata } from "todo.model";
 import classNames from "classnames/bind";
 import classes from "./styles.module.scss";
 import TaskCard from "./TaskCard";
 import Create from "./Create";
 import Timelines from "../TimelineCard";
 
-import tutorial1 from "../../images/tutorial-1.png";
-import tutorial2 from "../../images/tutorial-2.png";
-import circleQ from "../../images/circle-question-regular.svg";
+import tutorial1 from "images/tutorial-1.png";
+import tutorial2 from "images/tutorial-2.png";
+import circleQ from "images/circle-question-regular.svg";
 
-import { defaultTasks, defaultTags } from "../../data/defaultdata";
+import { defaultTasks, defaultTags } from "data/defaultdata";
 
 const cx = classNames.bind(classes);
 const MainBoard: React.FC = (props) => {

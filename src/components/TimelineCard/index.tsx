@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { ReactComponent as Paper } from "../../images/note-sticky-regular.svg";
-import { ColorThemeStorage } from "../../contexts/ColorTheme";
+import { ReactComponent as Paper } from "images/note-sticky-regular.svg";
+import { ColorThemeStorage } from "contexts/ColorTheme";
 
-import { Todo } from "../../todo.model";
+import { Todo } from "todo.model";
 import moment from "moment";
 
 import classNames from "classnames/bind";
 import classes from "./styles.module.scss";
-import CardHead from "../DesignSystem/CardHead";
+import CardHead from "components/DesignSystem/CardHead";
 const cx = classNames.bind(classes);
 type TimelinesProps = {
   todos: Todo[];

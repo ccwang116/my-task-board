@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { ColorThemeStorage } from "../../contexts/ColorTheme";
+import { ColorThemeStorage } from "contexts/ColorTheme";
 
-import { ReactComponent as Clipboard } from "../../images/clipboard-regular.svg";
+import { ReactComponent as Clipboard } from "images/clipboard-regular.svg";
 import classNames from "classnames/bind";
 import classes from "./styles.module.scss";
 const cx = classNames.bind(classes);

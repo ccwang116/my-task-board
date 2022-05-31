@@ -1,15 +1,15 @@
 import React, { useState, useContext } from "react";
-import { ReactComponent as Paper } from "../../../images/note-sticky-regular.svg";
+import { ReactComponent as Paper } from "images/note-sticky-regular.svg";
 
-import Trash from "../../../images/trash-can-regular.svg";
-import { ColorThemeStorage } from "../../../contexts/ColorTheme";
+import Trash from "images/trash-can-regular.svg";
+import { ColorThemeStorage } from "contexts/ColorTheme";
 
 import moment from "moment";
 import classNames from "classnames/bind";
 import classes from "../styles.module.scss";
-import { Todo, Tag } from "../../../todo.model";
-import { colorArray } from "../../../data/tagColorList";
-import CardHead from "../../DesignSystem/CardHead";
+import { Todo, Tag } from "todo.model";
+import { colorArray } from "data/tagColorList";
+import CardHead from "components/DesignSystem/CardHead";
 
 const cx = classNames.bind(classes);
 

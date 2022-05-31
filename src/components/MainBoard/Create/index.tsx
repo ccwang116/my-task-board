@@ -1,8 +1,8 @@
 import React, { useRef, useContext, useState } from "react";
-import { ColorThemeStorage } from "../../../contexts/ColorTheme";
+import { ColorThemeStorage } from "contexts/ColorTheme";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { addFormdata, Tag } from "../../../todo.model";
+import { addFormdata, Tag } from "todo.model";
 import moment from "moment";
 
 import classNames from "classnames/bind";

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 // import { Route } from 'react-router-dom';
-import Banner from "./components/Banner";
-import MainBoard from "./components/MainBoard";
-import { withColorThemeProvider } from "./contexts/ColorTheme";
-import { ColorThemeStorage } from "./contexts/ColorTheme";
+import Banner from "components/Banner";
+import MainBoard from "components/MainBoard";
+import { withColorThemeProvider } from "contexts/ColorTheme";
+import { ColorThemeStorage } from "contexts/ColorTheme";
 import "./App.css";
 
 const App: React.FC = () => {

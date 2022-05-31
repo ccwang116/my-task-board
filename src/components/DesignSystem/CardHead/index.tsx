@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ColorThemeStorage } from "../../../contexts/ColorTheme";
+import { ColorThemeStorage } from "contexts/ColorTheme";
 
 import classNames from "classnames/bind";
 import classes from "./styles.module.scss";
